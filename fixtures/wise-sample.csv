@@ -1,0 +1,58 @@
+TransferWise ID,Date,Amount,Currency,Description,Payment Reference,Running Balance,Exchange From,Exchange To,Exchange Rate,Payer Name,Payee Name,Payee Account Number,Merchant,Card Last Four Digits,Card Holder Full Name,Attachment,Note,Total fees,Exchange To Amount
+CARD-100012,08-11-2026,-53.01,EUR,Card transaction of 53.01 EUR issued by Mercadona,,,,,,,,,Mercadona,4321,Titular Ficticio,,,0.00,
+CARD-100003,05-11-2026,-13.99,EUR,Card transaction of 13.99 EUR issued by Netflix,,,,,,,,,Netflix,4321,Titular Ficticio,,,0.00,
+CARD-100047,04-11-2026,-79.95,EUR,Card transaction of 79.95 EUR issued by Zara,,,,,,,,,Zara,4321,Titular Ficticio,,,0.00,
+CARD-100046,03-11-2026,-33.40,EUR,Card transaction of 33.40 EUR issued by Restaurante Casa Ficticia,,,,,,,,,Restaurante Casa Ficticia,4321,Titular Ficticio,,,0.00,
+CARD-100045,02-11-2026,-16.80,EUR,Card transaction of 16.80 EUR issued by Cabify,,,,,,,,,Cabify,4321,Titular Ficticio,,,0.00,
+INTEREST-8002,31-10-2026,1.05,EUR,Interest earned,,,,,,,,,,,,,,,
+CARD-100015,28-10-2026,-89.90,EUR,Card transaction of 89.90 EUR issued by Amazon Business,,,,,,,,,Amazon Business,4321,Titular Ficticio,,,0.00,
+CARD-100011,25-10-2026,-55.32,EUR,Card transaction of 55.32 EUR issued by Mercadona,,,,,,,,,Mercadona,4321,Titular Ficticio,,,0.00,
+CARD-100044,22-10-2026,-8.37,EUR,Card transaction of 365.00 UYU issued by Uber Trip Montevideo,,,EUR,UYU,45.5000,,,,Uber Trip Montevideo,4321,Titular Ficticio,,,0.35,365.00
+CARD-100042,21-10-2026,-41.01,EUR,Card transaction of 1850.00 UYU issued by Parrilla Rambla Ficticia,,,EUR,UYU,45.5000,,,,Parrilla Rambla Ficticia,4321,Titular Ficticio,,,0.35,1850.00
+CARD-100043,21-10-2026,-152.33,EUR,Card transaction of 6900.00 UYU issued by Hotel Pocitos Ficticio,,,EUR,UYU,45.5000,,,,Hotel Pocitos Ficticio,4321,Titular Ficticio,,,0.68,6900.00
+CARD-100041,20-10-2026,-9.58,EUR,Card transaction of 420.00 UYU issued by Uber Trip Montevideo,,,EUR,UYU,45.5000,,,,Uber Trip Montevideo,4321,Titular Ficticio,,,0.35,420.00
+CONVERSION-6002,19-10-2026,-50.00,EUR,Converted 50.00 EUR to 2275.00 UYU,,,,,,,,,,,,,,,
+CONVERSION-6002,19-10-2026,2275.00,UYU,Converted 50.00 EUR to 2275.00 UYU,,,,,,,,,,,,,,,
+CARD-100018,15-10-2026,-39.90,EUR,Card transaction of 39.90 EUR issued by Movistar Empresas,,,,,,,,,Movistar Empresas,4321,Titular Ficticio,,,0.00,
+CARD-100006,12-10-2026,-10.99,EUR,Card transaction of 10.99 EUR issued by Spotify,,,,,,,,,Spotify,4321,Titular Ficticio,,,0.00,
+CARD-100040,12-10-2026,-12.30,EUR,Card transaction of 12.30 EUR issued by Cafeteria Estacion Sants,,,,,,,,,Cafeteria Estacion Sants,4321,Titular Ficticio,,,0.00,
+CARD-100039,11-10-2026,-22.70,EUR,Card transaction of 22.70 EUR issued by Uber Trip Barcelona,,,,,,,,,Uber Trip Barcelona,4321,Titular Ficticio,,,0.00,
+CARD-100038,10-10-2026,-298.00,EUR,Card transaction of 298.00 EUR issued by Hotel Puerta Ficticia Barcelona,,,,,,,,,Hotel Puerta Ficticia Barcelona,4321,Titular Ficticio,,,0.00,
+CARD-100037,09-10-2026,-58.90,EUR,Card transaction of 58.90 EUR issued by Repsol Estacion,,,,,,,,,Repsol Estacion,4321,Titular Ficticio,,,0.00,
+CARD-100036,08-10-2026,-55.20,EUR,Card transaction of 55.20 EUR issued by Restaurante El Mercado Ficticio,,,,,,,,,Restaurante El Mercado Ficticio,4321,Titular Ficticio,,,0.00,
+CARD-100035,07-10-2026,-18.40,EUR,Card transaction of 18.40 EUR issued by Uber Trip Madrid,,,,,,,,,Uber Trip Madrid,4321,Titular Ficticio,,,0.00,
+CARD-100033,06-10-2026,-71.15,EUR,Card transaction of 71.15 EUR issued by Repsol Estacion,,,,,,,,,Repsol Estacion,4321,Titular Ficticio,,,0.00,
+CARD-100034,06-10-2026,-48.60,EUR,Card transaction of 48.60 EUR issued by Restaurante Casa Ficticia,,,,,,,,,Restaurante Casa Ficticia,4321,Titular Ficticio,,,0.00,
+CARD-100002,05-10-2026,-13.99,EUR,Card transaction of 13.99 EUR issued by Netflix,,,,,,,,,Netflix,4321,Titular Ficticio,,,0.00,
+CARD-100032,05-10-2026,-412.00,EUR,Card transaction of 412.00 EUR issued by Hotel Gran Via Ficticio,,,,,,,,,Hotel Gran Via Ficticio,4321,Titular Ficticio,,,0.00,
+CARD-100031,04-10-2026,-62.40,EUR,Card transaction of 62.40 EUR issued by Repsol Estacion,,,,,,,,,Repsol Estacion,4321,Titular Ficticio,,,0.00,
+CARD-100030,03-10-2026,-185.00,EUR,Card transaction of 185.00 EUR issued by Europcar Madrid,,,,,,,,,Europcar Madrid,4321,Titular Ficticio,,,0.00,
+BALANCE_DEPOSIT-5002,01-10-2026,1500.00,EUR,Topped up balance,,,,,,,,,,,,,,,
+BALANCE_CASHBACK-8001,30-09-2026,3.21,EUR,Balance cashback,,,,,,,,,,,,,,,
+CARD-100010,27-09-2026,-51.72,EUR,Card transaction of 51.72 EUR issued by Mercadona,,,,,,,,,Mercadona,4321,Titular Ficticio,,,0.00,
+CARD-100014,22-09-2026,-1180.40,EUR,Card transaction of 1180.40 EUR issued by Vueling Airlines,,,,,,,,,Vueling Airlines,4321,Titular Ficticio,,,0.00,
+CARD-100029,18-09-2026,-52.00,PEN,Card transaction of 52.00 PEN issued by Uber Trip Lima,,,,,,,,,Uber Trip Lima,4321,Titular Ficticio,,,0.00,
+CARD-100027,17-09-2026,-51.57,EUR,Card transaction of 210.00 PEN issued by Restaurante Andino Ficticio,,,EUR,PEN,4.1000,,,,Restaurante Andino Ficticio,4321,Titular Ficticio,,,0.35,210.00
+CARD-100026,16-09-2026,-7.96,EUR,Card transaction of 31.20 PEN issued by Uber Trip Lima,,,EUR,PEN,4.1000,,,,Uber Trip Lima,4321,Titular Ficticio,,,0.35,31.20
+CARD-100017,15-09-2026,-39.90,EUR,Card transaction of 39.90 EUR issued by Movistar Empresas,,,,,,,,,Movistar Empresas,4321,Titular Ficticio,,,0.00,
+CARD-100025,15-09-2026,-11.33,EUR,Card transaction of 45.00 PEN issued by Taxi Seguro Lima,,,EUR,PEN,4.1000,,,,Taxi Seguro Lima,4321,Titular Ficticio,,,0.35,45.00
+CARD-100024,14-09-2026,-24.25,EUR,Card transaction of 98.00 PEN issued by Cevicheria El Puerto Ficticio,,,EUR,PEN,4.1000,,,,Cevicheria El Puerto Ficticio,4321,Titular Ficticio,,,0.35,98.00
+CARD-100028,14-09-2026,-64.50,PEN,Card transaction of 64.50 PEN issued by Farmacia Inkafarma Ficticia,,,,,,,,,Farmacia Inkafarma Ficticia,4321,Titular Ficticio,,,0.00,
+CARD-100023,13-09-2026,-44.25,EUR,Card transaction of 180.00 PEN issued by Primax Combustible,,,EUR,PEN,4.1000,,,,Primax Combustible,4321,Titular Ficticio,,,0.35,180.00
+CARD-100005,12-09-2026,-10.99,EUR,Card transaction of 10.99 EUR issued by Spotify,,,,,,,,,Spotify,4321,Titular Ficticio,,,0.00,
+CARD-100022,12-09-2026,-7.13,EUR,Card transaction of 27.80 PEN issued by Uber Trip Lima,,,EUR,PEN,4.1000,,,,Uber Trip Lima,4321,Titular Ficticio,,,0.35,27.80
+CARD-100021,11-09-2026,-35.72,EUR,Card transaction of 145.00 PEN issued by Restaurante La Costa Ficticia,,,EUR,PEN,4.1000,,,,Restaurante La Costa Ficticia,4321,Titular Ficticio,,,0.35,145.00
+CARD-100019,10-09-2026,-9.74,EUR,Card transaction of 38.50 PEN issued by Uber Trip Lima,,,EUR,PEN,4.1000,,,,Uber Trip Lima,4321,Titular Ficticio,,,0.35,38.50
+CARD-100020,10-09-2026,-600.25,EUR,Card transaction of 2450.00 PEN issued by Hotel Miraflores Ficticio,,,EUR,PEN,4.1000,,,,Hotel Miraflores Ficticio,4321,Titular Ficticio,,,2.69,2450.00
+CARD-100009,06-09-2026,-99.36,EUR,Card transaction of 99.36 EUR issued by Mercadona,,,,,,,,,Mercadona,4321,Titular Ficticio,,,0.00,
+CONVERSION-6001,05-09-2026,-100.00,EUR,Converted 100.00 EUR to 410.00 PEN,,,,,,,,,,,,,,,
+CONVERSION-6001,05-09-2026,410.00,PEN,Converted 100.00 EUR to 410.00 PEN,,,,,,,,,,,,,,,
+CARD-100001,05-09-2026,-13.99,EUR,Card transaction of 13.99 EUR issued by Netflix,,,,,,,,,Netflix,4321,Titular Ficticio,,,0.00,
+TRANSFER-7001,28-08-2026,-500.00,EUR,Sent money to Titular Ficticio,Ahorro,,,,,Titular Ficticio,Titular Ficticio,XX00 TEST 0000 0000,,,,,,,
+CARD-100013,25-08-2026,-742.30,EUR,Card transaction of 742.30 EUR issued by Iberia Lineas Aereas,,,,,,,,,Iberia Lineas Aereas,4321,Titular Ficticio,,,0.00,
+CARD-100008,23-08-2026,-67.48,EUR,Card transaction of 67.48 EUR issued by Mercadona,,,,,,,,,Mercadona,4321,Titular Ficticio,,,0.00,
+CARD-100016,15-08-2026,-39.90,EUR,Card transaction of 39.90 EUR issued by Movistar Empresas,,,,,,,,,Movistar Empresas,4321,Titular Ficticio,,,0.00,
+CARD-100004,12-08-2026,-10.99,EUR,Card transaction of 10.99 EUR issued by Spotify,,,,,,,,,Spotify,4321,Titular Ficticio,,,0.00,
+CARD-100007,09-08-2026,-46.01,EUR,Card transaction of 46.01 EUR issued by Carrefour Market,,,,,,,,,Carrefour Market,4321,Titular Ficticio,,,0.00,
+CARD-100000,05-08-2026,-13.99,EUR,Card transaction of 13.99 EUR issued by Netflix,,,,,,,,,Netflix,4321,Titular Ficticio,,,0.00,
+BALANCE_DEPOSIT-5001,01-08-2026,2000.00,EUR,Topped up balance,,,,,,,,,,,,,,,
