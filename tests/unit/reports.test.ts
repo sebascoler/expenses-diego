@@ -168,6 +168,14 @@ describe("bootstrap (§16.9) y recordatorio (RF-80 a RF-83)", () => {
     delete process.env.BOOTSTRAP_PASSWORD;
   });
 
+  it("el bootstrap tolera espacios, saltos de línea y comillas pegados en las variables", async () => {
+    process.env.BOOTSTRAP_USERNAME = ' "Sebastian" ';
+    process.env.BOOTSTRAP_PASSWORD = "clave-bootstrap-12 \n";
+    expect(await tryBootstrap(db, "sebastian", "clave-bootstrap-12")).toMatchObject({ username: "sebastian" });
+    delete process.env.BOOTSTRAP_USERNAME;
+    delete process.env.BOOTSTRAP_PASSWORD;
+  });
+
   it("decide el día del recordatorio y el segundo aviso", async () => {
     const s = { ...DEFAULT_SETTINGS };
     expect(await reminderDue(db, s, new Date("2026-11-19T12:00:00Z"))).toBeNull();
