@@ -78,7 +78,7 @@ export function ReportPreview({ data }: { data: ReportData }) {
                   {t.lines.map((l) => (
                     <li key={l.id} className="flex justify-between gap-2 py-1">
                       <span className="min-w-0">
-                        <span className="block truncate">{l.merchant}</span>
+                        <span className="block break-words">{l.merchant}</span>
                         <span className="text-xs text-muted-foreground">
                           {formatDate(l.date)} · {l.category} · TC {FX_LABEL[l.fxSource]}
                           {l.surcharge.gt(0) ? ` · recargo ${formatMoney(l.surcharge.toFixed(2), l.currency)}` : ""}

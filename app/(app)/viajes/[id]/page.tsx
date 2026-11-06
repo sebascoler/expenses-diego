@@ -112,7 +112,7 @@ export default async function TripDetailPage({ params }: { params: Promise<{ id:
           {view.expenses.map((e) => (
             <li key={e.id} className="flex items-center justify-between gap-2 py-2">
               <span className="min-w-0">
-                <span className="block truncate font-medium">{e.merchant}</span>
+                <span className="block font-medium break-words">{e.merchant}</span>
                 <span className="text-xs text-muted-foreground">
                   {formatDate(e.date)} · {e.category ?? "Sin categoría"}
                 </span>

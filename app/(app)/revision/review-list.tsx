@@ -223,22 +223,15 @@ export function ReviewList({
         <Card className="text-center text-sm text-muted-foreground">{filter === "revisar" ? "¡No queda nada por revisar! 🎉" : "No hay movimientos con este filtro."}</Card>
       ) : (
         <>
-          <div className="hidden items-center gap-2 px-3 text-xs font-medium text-muted-foreground md:grid md:grid-cols-[24px_80px_1fr_120px_96px_150px_170px_170px]">
+          <label className="flex min-h-11 items-center gap-2 px-3 text-sm text-muted-foreground">
             <input
               type="checkbox"
-              aria-label="Seleccionar todas"
-              className="h-4 w-4"
+              className="h-5 w-5"
               checked={selected.size > 0 && selected.size === editable.length}
               onChange={(e) => setSelected(e.target.checked ? new Set(editable.map((r) => r.id)) : new Set())}
             />
-            <span>Fecha</span>
-            <span>Comercio</span>
-            <span className="text-right">Monto</span>
-            <span className="text-right">EUR</span>
-            <span>Aplica</span>
-            <span>Viaje</span>
-            <span>Categoría</span>
-          </div>
+            Seleccionar todas
+          </label>
           <ul className="space-y-2" data-testid="review-list">
             {rows.map((r) => (
               <TxRow
@@ -350,48 +343,51 @@ function TxRow({
       data-testid="tx-row"
       data-merchant={row.merchant}
       data-applies={row.applies === null ? "null" : String(row.applies)}
-      className={cn("rounded-lg border bg-card p-3 shadow-sm md:grid md:grid-cols-[24px_80px_1fr_120px_96px_150px_170px_170px] md:items-center md:gap-2 md:py-2", selected ? "border-primary" : "border-border")}
+      className={cn("rounded-lg border bg-card p-3 shadow-sm", selected ? "border-primary" : "border-border")}
     >
-      <div className="float-right md:float-none">
-        <input type="checkbox" aria-label={`Seleccionar ${row.merchant}`} className="h-5 w-5 md:h-4 md:w-4" disabled={locked} checked={selected} onChange={onSelect} />
-      </div>
-      <div className="text-xs text-muted-foreground md:text-sm">{formatDate(row.date)}</div>
-      <div className="min-w-0">
-        <div className="truncate font-medium">{row.merchant}</div>
-        <div className="flex flex-wrap items-center gap-1">
-          <SourceIcon row={row} />
-          {row.bankStatus === "pendiente" ? <Badge tone="warning">{t.common.pendiente}</Badge> : null}
-          {row.rendered ? <Badge tone="info">{t.common.rendido}</Badge> : null}
-          {row.kind === "no_gasto" ? <Badge>No es gasto</Badge> : null}
-          {row.fxSource === "pendiente" ? <Badge tone="danger">Sin tipo de cambio</Badge> : null}
-        </div>
-        {row.applies === null && row.kind === "gasto" ? (
-          <div className="mt-1 flex flex-wrap items-center gap-1 text-xs">
-            {row.suggestionConfidence ? (
-              <>
-                <Badge tone={CONF_TONE[row.suggestionConfidence]}>Confianza {row.suggestionConfidence}</Badge>
-                <span className="text-muted-foreground">
-                  Sugerido: {suggestionLabel} · {row.suggestionReason}
-                </span>
-                {row.suggestedApplies !== null && !locked ? (
-                  <button type="button" className="text-primary underline" onClick={() => onUpdate(row, "accept", true, { applies: row.suggestedApplies })}>
-                    Aceptar
-                  </button>
-                ) : null}
-              </>
-            ) : (
-              <Badge>{t.common.sinClasificar}</Badge>
-            )}
+      {/* Encabezado: el comercio siempre se lee completo (se parte en varias líneas si hace falta). */}
+      <div className="flex items-start gap-3">
+        <input type="checkbox" aria-label={`Seleccionar ${row.merchant}`} className="mt-0.5 h-5 w-5 shrink-0" disabled={locked} checked={selected} onChange={onSelect} />
+        <div className="min-w-0 flex-1">
+          <div className="text-xs text-muted-foreground">{formatDate(row.date)}</div>
+          <div className="font-medium break-words">{row.merchant}</div>
+          {row.description && row.description.toUpperCase() !== row.merchant ? <div className="text-xs break-words text-muted-foreground">{row.description}</div> : null}
+          <div className="mt-1 flex flex-wrap items-center gap-1">
+            <SourceIcon row={row} />
+            {row.bankStatus === "pendiente" ? <Badge tone="warning">{t.common.pendiente}</Badge> : null}
+            {row.rendered ? <Badge tone="info">{t.common.rendido}</Badge> : null}
+            {row.kind === "no_gasto" ? <Badge>No es gasto</Badge> : null}
+            {row.fxSource === "pendiente" ? <Badge tone="danger">Sin tipo de cambio</Badge> : null}
           </div>
-        ) : null}
+          {row.applies === null && row.kind === "gasto" ? (
+            <div className="mt-1 flex flex-wrap items-center gap-1 text-xs">
+              {row.suggestionConfidence ? (
+                <>
+                  <Badge tone={CONF_TONE[row.suggestionConfidence]}>Confianza {row.suggestionConfidence}</Badge>
+                  <span className="text-muted-foreground">
+                    Sugerido: {suggestionLabel} · {row.suggestionReason}
+                  </span>
+                  {row.suggestedApplies !== null && !locked ? (
+                    <button type="button" className="text-primary underline" onClick={() => onUpdate(row, "accept", true, { applies: row.suggestedApplies })}>
+                      Aceptar
+                    </button>
+                  ) : null}
+                </>
+              ) : (
+                <Badge>{t.common.sinClasificar}</Badge>
+              )}
+            </div>
+          ) : null}
+        </div>
+        <div className="shrink-0 text-right">
+          <div className="font-semibold whitespace-nowrap">{formatMoney(row.amount, row.currency)}</div>
+          {row.currency !== "EUR" || row.amountEur !== null ? <div className="text-sm whitespace-nowrap text-muted-foreground">{row.amountEur ? formatMoney(row.amountEur) : "—"}</div> : null}
+        </div>
       </div>
-      <div className="mt-2 flex items-baseline justify-between md:mt-0 md:block md:text-right">
-        <span className="font-semibold md:font-normal">{formatMoney(row.amount, row.currency)}</span>
-        <span className="text-sm text-muted-foreground md:hidden">{row.amountEur ? formatMoney(row.amountEur) : "—"}</span>
-      </div>
-      <div className="hidden text-right text-sm md:block">{row.amountEur ? formatMoney(row.amountEur) : "—"}</div>
-      <div className="mt-2 md:mt-0">{appliesButtons}</div>
-      <div className="mt-2 md:mt-0">
+
+      {/* Controles: en móvil uno debajo del otro; en pantallas anchas, en tres columnas. */}
+      <div className="mt-3 grid gap-2 sm:grid-cols-3">
+        {appliesButtons}
         <Select
           aria-label={`Viaje de ${row.merchant}`}
           disabled={locked}
@@ -407,8 +403,6 @@ function TxRow({
             </option>
           ))}
         </Select>
-      </div>
-      <div className="mt-2 md:mt-0">
         <Select aria-label={`Categoría de ${row.merchant}`} disabled={locked} value={row.categoryId ?? ""} onChange={(e) => onUpdate(row, "category", e.target.value || null, { categoryId: e.target.value || null })} className="min-h-11 text-sm">
           <option value="">Sin categoría</option>
           {categories.map((c) => (
@@ -418,7 +412,7 @@ function TxRow({
           ))}
         </Select>
       </div>
-      <div className="mt-2 flex flex-wrap items-center gap-3 text-sm md:col-span-8 md:col-start-3 md:mt-1">
+      <div className="mt-1 flex flex-wrap items-center gap-3 text-sm">
         {row.source === "bbva" && row.kind === "gasto" ? (
           <label className="flex min-h-11 items-center gap-2">
             <input type="checkbox" className="h-5 w-5" disabled={locked} checked={row.surchargeEnabled} onChange={(e) => onUpdate(row, "surcharge", e.target.checked, { surchargeEnabled: e.target.checked })} />
@@ -442,10 +436,9 @@ function TxRow({
             onBlur={() => note !== row.note && onUpdate(row, "note", note, { note })}
           />
         ) : null}
-        {row.description && row.description.toUpperCase() !== row.merchant ? <span className="w-full truncate text-xs text-muted-foreground">{row.description}</span> : null}
       </div>
       {row.possibleMatch ? (
-        <div className="mt-2 rounded-lg bg-amber-50 p-2 text-sm text-amber-900 md:col-span-8 md:col-start-3">
+        <div className="mt-2 rounded-lg bg-amber-50 p-2 text-sm text-amber-900">
           ¿Es el mismo gasto que el pendiente del {formatDate(row.possibleMatch.date)} por {formatMoney(row.possibleMatch.amount, row.currency)}?
           <div className="mt-1 flex gap-2">
             <Button size="sm" onClick={async () => (await resolveMatchAction({ id: row.id, same: true }), onResolved())}>
