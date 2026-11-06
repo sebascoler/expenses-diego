@@ -22,6 +22,12 @@ function required(name: "SESSION_SECRET" | "ENCRYPTION_KEY" | "DEDUP_HMAC_KEY"):
   return `${DEV_FALLBACK}:${name}`;
 }
 
+/** Quita espacios, saltos de línea y comillas envolventes que suelen colarse al pegar en Vercel. */
+function cleanCredential(raw: string | undefined): string | undefined {
+  const v = raw?.trim().replace(/^(["'])(.*)\1$/, "$2").trim();
+  return v || undefined;
+}
+
 export const env = {
   get sessionSecret() {
     return required("SESSION_SECRET");
@@ -54,10 +60,10 @@ export const env = {
     return (process.env.APP_URL?.trim() || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")).replace(/\/$/, "");
   },
   get bootstrapUsername() {
-    return process.env.BOOTSTRAP_USERNAME?.trim() || undefined;
+    return cleanCredential(process.env.BOOTSTRAP_USERNAME);
   },
   get bootstrapPassword() {
-    return process.env.BOOTSTRAP_PASSWORD || undefined;
+    return cleanCredential(process.env.BOOTSTRAP_PASSWORD);
   },
   /** "fixture" = tasas fijas de fixtures/fx-rates.json (tests y e2e, sin red). */
   get fxProvider() {
