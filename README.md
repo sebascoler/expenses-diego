@@ -4,6 +4,7 @@ Herramienta web para preparar la rendición mensual de gastos de Diego. Importa 
 
 - Requisitos y guía de implementación: [`docs/PRD.md`](docs/PRD.md) (ver §16) · Decisiones: [`docs/DECISIONS.md`](docs/DECISIONS.md)
 - Guía de uso para Diego: [`docs/GUIA-DIEGO.md`](docs/GUIA-DIEGO.md)
+- Manual para tener una copia propia (GitHub + Vercel + Neon), paso a paso: [`docs/MANUAL-COPIA-PROPIA.md`](docs/MANUAL-COPIA-PROPIA.md)
 - Stack: Next.js 16 (App Router) · Tailwind · Drizzle + Neon (PGlite en dev/test) · Zod · PapaParse + SheetJS · @react-pdf/renderer + exceljs · Claude API · Resend · Vitest + Playwright
 
 ## Desarrollo local
