@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Trash2 } from "lucide-react";
 import {
   changePasswordAction,
@@ -14,6 +15,8 @@ import {
   toggleRuleAction,
   wipeDataAction,
 } from "@/app/actions/settings";
+import { createUserAction, deleteUserAction, restartTourAction } from "@/app/actions/users";
+import { formatDate } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Select } from "@/components/ui/input";
@@ -272,5 +275,79 @@ export function WipeForm() {
         Borrar todos los datos
       </Button>
     </form>
+  );
+}
+
+export function UsersForm({ users, currentUserId }: { users: { id: string; username: string; createdAt: string }[]; currentUserId: string }) {
+  const [state, action, pending] = useActionState(createUserAction, undefined);
+  const [msg, setMsg] = useState<State>();
+  const [deleting, start] = useTransition();
+  return (
+    <div className="space-y-3">
+      <ul className="space-y-1 text-sm" data-testid="users-list">
+        {users.map((u) => (
+          <li key={u.id} className="flex items-center justify-between gap-2 rounded-lg bg-muted px-2">
+            <span className="py-2">
+              <strong>{u.username}</strong> {u.id === currentUserId ? <Badge tone="info">vos</Badge> : null}
+              <span className="block text-xs text-muted-foreground">Creado el {formatDate(u.createdAt.slice(0, 10))}</span>
+            </span>
+            {u.id !== currentUserId ? (
+              <button
+                type="button"
+                aria-label={`Borrar usuario ${u.username}`}
+                disabled={deleting}
+                className="flex h-11 w-11 items-center justify-center"
+                onClick={() => {
+                  if (!confirm(`¿Borrar el usuario "${u.username}"? Se cierran sus sesiones. Los datos no se borran.`)) return;
+                  start(async () => setMsg(await deleteUserAction(u.id)));
+                }}
+              >
+                <Trash2 className="h-4 w-4" aria-hidden />
+              </button>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+      <Msg state={msg} />
+      <form action={action} className="grid gap-3 sm:grid-cols-3" data-testid="new-user-form">
+        <div>
+          <Label htmlFor="nu-username">Usuario nuevo</Label>
+          <Input id="nu-username" name="username" autoCapitalize="none" autoComplete="off" placeholder="diego" required />
+        </div>
+        <div>
+          <Label htmlFor="nu-password">Contraseña temporal (mín. 12)</Label>
+          <Input id="nu-password" name="password" type="password" autoComplete="new-password" required />
+        </div>
+        <div>
+          <Label htmlFor="nu-confirm">Repetir contraseña</Label>
+          <Input id="nu-confirm" name="confirm" type="password" autoComplete="new-password" required />
+        </div>
+        <div className="sm:col-span-3">
+          <Msg state={state} />
+        </div>
+        <Button type="submit" variant="outline" disabled={pending} className="sm:col-span-3">
+          Crear usuario
+        </Button>
+      </form>
+    </div>
+  );
+}
+
+export function RestartTourButton() {
+  const router = useRouter();
+  const [pending, start] = useTransition();
+  return (
+    <Button
+      variant="outline"
+      disabled={pending}
+      onClick={() =>
+        start(async () => {
+          await restartTourAction();
+          router.push("/");
+        })
+      }
+    >
+      Ver el tutorial de nuevo
+    </Button>
   );
 }
