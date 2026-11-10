@@ -12,6 +12,8 @@
 6. **Cerrar rendición:** los gastos quedan marcados como rendidos y no se pueden volver a rendir.
 
 ## Tips
+- La primera vez que entrás aparece un tutorial guiado. Lo podés volver a ver desde *Ajustes → Tutorial*.
+- En *Ajustes → Usuarios* se pueden crear otros usuarios (por ejemplo, para quien te ayude con la rendición). Todos ven los mismos datos.
 - Si corregís dos veces el mismo comercio, la app te ofrece crear una regla ("Siempre marcar Netflix como personal").
 - En **Ajustes** cargá los últimos 4 dígitos de tus tarjetas BBVA (física y virtual) para que la app sugiera empresa o personal según la tarjeta.
 - ¿Un gasto en efectivo? *Revisión → Agregar gasto manual*.

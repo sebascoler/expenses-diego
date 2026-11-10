@@ -30,3 +30,9 @@ Decisiones de implementación que no están en el PRD o que lo modifican. Format
 - **Ajustes en jsonb envueltos en `{ v }`** · Drizzle parsea como JSON los strings guardados en jsonb ("0.35" volvía como número).
 - **Borrar todos los datos** también borra `audit_log` y `login_attempts`, y deja registrado el borrado como primera entrada del log nuevo.
 - **`uuid` forzado a 11.1.1** (override de pnpm) · `exceljs` traía una versión con un aviso de seguridad moderado.
+
+## 10/11/2026
+
+- **Varios usuarios con los mismos datos** · Pedido: Diego es el usuario real y Sebastián entra como tester. Se agregó Ajustes → Usuarios (crear con contraseña temporal de 12+ caracteres, listar, borrar). No hay datos por usuario: todos ven y editan lo mismo, por eso alcanza con más filas en `users` y no hace falta tocar el resto del modelo. No se puede borrar el propio usuario ni dejar la app sin usuarios. "Borrar todos los datos" sigue borrando a **todos** los usuarios (entrega limpia, §16.9).
+- **Tutorial de bienvenida** · Recorrido de 9 pasos con tooltips sobre Inicio (resumen, archivos a bajar, Importar, Revisión, Viajes, Rendir, Ajustes). Se muestra la primera vez que entra cada usuario (`users.tour_completed_at`, migración `0001_user_tour`), se puede saltear (también con Esc) y se vuelve a ver desde Ajustes. Hecho a mano, sin librerías, para no sumar peso en el cliente ni relajar la CSP.
+- **Login por bootstrap** · Las variables `BOOTSTRAP_*` se recortan (espacios, saltos de línea, comillas) y, si el bootstrap no entra, se loguea el motivo sin valores.

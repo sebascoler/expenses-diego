@@ -22,7 +22,7 @@ export default async function HomePage() {
         <p className="text-sm text-muted-foreground">{last ? `Última rendición: hasta el ${formatDate(last.dateTo)}.` : "Todavía no hiciste ninguna rendición."}</p>
       </div>
 
-      <Card className="space-y-3">
+      <Card className="space-y-3" data-tour="home-stats">
         <div className="grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
           <Stat label="Por revisar" value={String(c.review)} tone={c.review > 0 ? "warn" : "ok"} />
           <Stat label="Empresa" value={String(c.empresa)} />
@@ -34,7 +34,7 @@ export default async function HomePage() {
         </Link>
       </Card>
 
-      <Card>
+      <Card data-tour="home-sources">
         <CardTitle className="mb-2">Último movimiento cargado</CardTitle>
         <ul className="space-y-2 text-sm">
           <SourceRow name="Wise" date={status.wise} hint={status.wise ? `Bajá el CSV desde el ${formatDate(status.wise)} hasta hoy.` : "Todavía no subiste ningún extracto."} />

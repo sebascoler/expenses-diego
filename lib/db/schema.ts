@@ -36,6 +36,8 @@ export const users = pgTable("users", {
   passwordHash: text("password_hash").notNull(),
   createdAt: createdAt(),
   passwordChangedAt: timestamp("password_changed_at", { withTimezone: true }).notNull().defaultNow(),
+  /** Cuándo terminó (o salteó) el tutorial de bienvenida. null = se muestra al entrar. */
+  tourCompletedAt: timestamp("tour_completed_at", { withTimezone: true }),
 });
 
 export const sessions = pgTable(
